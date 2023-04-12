@@ -48,7 +48,7 @@
 .parent { 
 	display: grid;
 	grid-template-columns: repeat(5, 1fr); 
-	grid-template-rows: repeat(5, 1fr); 
+	grid-template-rows: repeat(6, 1fr); 
 	grid-column-gap: 0px;
 	grid-row-gap: 0px; 
 	align-content: center;
@@ -94,11 +94,40 @@
 } 
 
 .div6 { 
+	background-color: purple;
 	text-align: center;
 	width: 60px;
 	height: 40px;
 	grid-area: 4 / 3 / 5 / 4; 
 } 
+
+.div7 {
+	background-color: orange;
+	width: 60px;
+	height: 40px;
+	grid-area: 5 / 1 / 5 / 4; 
+}
+
+.div7 {
+	background-color: orange;
+	width: 60px;
+	height: 40px;
+	grid-area: 5 / 1 / 5 / 4; 
+}
+
+.div8 {
+	background-color: plum;
+	width: 60px;
+	height: 40px;
+	grid-area: 5 / 2 / 5 / 4; 
+}
+
+.div9 {
+	background-color: orange;
+	width: 60px;
+	height: 40px;
+	grid-area: 5 / 3 / 5 / 4; 
+}
 
 .label {
 	font-size: large;

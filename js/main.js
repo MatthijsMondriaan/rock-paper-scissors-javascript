@@ -1,8 +1,17 @@
 console.log("main.js loaded");
 
 // Variables
-let buttons = document.querySelectorAll(".button");
+const buttons = document.querySelectorAll(".button");
 
+const game = {
+    playerWins: 0,
+    computerWins: 0
+}
+
+const rockPaperScissor = ['🪨', '📜', '✂️'];
+
+let playerChoice = "";
+let gameRound = 0;
 
 // Add event listeners
 buttons.forEach(button => {
@@ -11,14 +20,17 @@ buttons.forEach(button => {
     });
 });
 
-let i = 0;
+function getComputerChoice() {
+    return rockPaperScissor[Math.floor(Math.random() * rockPaperScissor.length)];
+}
 
 // Functions
 function buttonClicked(button) {
     const choice = button.target.innerHTML;
 
-    console.log("i: " + i)
-    i++;
+    console.log("getComputerChoice: " + getComputerChoice())
+    gameRound++;
+    
     switch (choice) {
         case '🪨':
             console.log("Let's rock!"); 
