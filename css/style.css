@@ -1,4 +1,6 @@
-
+* {
+	font-size: x-small;
+}
 
 .container {
 	width: 280px;
@@ -13,7 +15,6 @@
 	grid-template-rows: repeat(6, 1fr); 
 	grid-column-gap: 0px;
 	grid-row-gap: 0px; 
-	/* align-content: center; */
 	margin: auto;
 	padding-left: 50px;
 }
