@@ -19,7 +19,7 @@ const rockPaperScissors = ['🪨', '📜', '✂️'];
 let playerWon = false;
 let gameRound = 0;
 
-// Add event listeners
+// Event listeners
 buttons.forEach(button => {
     button.addEventListener("click", (button) => {
         buttonClicked(button);
