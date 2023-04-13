@@ -1,3 +1,8 @@
+div {
+	padding: ;
+}
+
+
 /* The device with borders */
 .smartphone {
 	position: relative;
@@ -94,7 +99,6 @@
 } 
 
 .div6 { 
-	background-color: purple;
 	text-align: center;
 	width: 60px;
 	height: 40px;
@@ -102,28 +106,24 @@
 } 
 
 .div7 {
-	background-color: orange;
 	width: 60px;
 	height: 40px;
 	grid-area: 5 / 1 / 5 / 4; 
 }
 
 .div7 {
-	background-color: orange;
 	width: 60px;
 	height: 40px;
 	grid-area: 5 / 1 / 5 / 4; 
 }
 
 .div8 {
-	background-color: plum;
 	width: 60px;
 	height: 40px;
 	grid-area: 5 / 2 / 5 / 4; 
 }
 
 .div9 {
-	background-color: orange;
 	width: 60px;
 	height: 40px;
 	grid-area: 5 / 3 / 5 / 4; 
