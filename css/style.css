@@ -69,17 +69,19 @@
 }
 
 .div8 {
-	text-align: center;
+	text-align: left;
 	height: 40px;
 	grid-area: 5 / 2 / 5 / 4; 
 }
 
 .div9 {
+	text-align: right;
+
 	height: 40px;
 	grid-area: 5 / 3 / 5 / 4; 
 }
 
-.label {
+.game-label {
 	font-size: large;
 	font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }

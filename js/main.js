@@ -2,15 +2,21 @@ console.log("main.js loaded");
 
 // Variables
 const buttons = document.querySelectorAll(".button");
+const computerIcon = document.querySelector(".computer-icon");
+const gameLabel = document.querySelector(".game-label");
+const playerWinsLabel = document.querySelector(".player-wins-label");
+const computerWinsLabel = document.querySelector(".computer-wins-label");
 
 const game = {
+    playerChoice: "",
+    computerChoice: "",
     playerWins: 0,
-    computerWins: 0
+    computerWins: 0,
 }
 
-const rockPaperScissor = ['🪨', '📜', '✂️'];
+const rockPaperScissors = ['🪨', '📜', '✂️'];
 
-let playerChoice = "";
+let playerWon = false;
 let gameRound = 0;
 
 // Add event listeners
@@ -20,28 +26,69 @@ buttons.forEach(button => {
     });
 });
 
-function getComputerChoice() {
-    return rockPaperScissor[Math.floor(Math.random() * rockPaperScissor.length)];
-}
+setGameLabel("Rock, Paper or Scissors?");
 
 // Functions
+function getComputerChoice() {
+    return rockPaperScissors[Math.floor(Math.random() * rockPaperScissors.length)];
+}
+
 function buttonClicked(button) {
     const choice = button.target.innerHTML;
+    //game.computerChoice = "🪨";
+    game.computerChoice = getComputerChoice();
 
-    console.log("getComputerChoice: " + getComputerChoice())
-    gameRound++;
-    
+    console.log("getComputerChoice: " + game.computerChoice);
+
     switch (choice) {
         case '🪨':
-            console.log("Let's rock!"); 
+            game.playerChoice = "🪨";
             break;
         case '📜':
-            console.log("Paper it is"); 
+            game.playerChoice = "📜";
             break;
         case '✂️':
-            console.log("Ssssscissor"); 
+            game.playerChoice = "✂️";
             break;
         default:
             break;
     }
+
+    setGameLabel(checkWinner() + " wins")
+
+    gameRound++;
+}
+
+function checkWinner() {
+    let winner = "";
+
+    switch (game.playerChoice + game.computerChoice) {
+        case "🪨✂️":
+        case "✂️📜":
+        case "📜🪨":
+          winner = "player";
+          game.playerWins++;
+          break;
+        case "✂️🪨":
+        case "📜✂️":
+        case "🪨📜":
+          winner = "computer";
+          game.computerWins++;
+          break;
+        case "📜📜":
+        case "✂️✂️":
+        case "🪨🪨":
+          winner = "none";
+          break;
+        default:
+          winner = "none";
+    }
+
+    return winner;
+}
+
+function setGameLabel(labelText) {
+    gameLabel.textContent = labelText;
+    playerWinsLabel.textContent = "Player: " + game.playerWins + " ";
+    computerWinsLabel.textContent = "Computer: " + game.computerWins;
 }
