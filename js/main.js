@@ -6,6 +6,7 @@ const computerIcon = document.querySelector(".computer-icon");
 const gameLabel = document.querySelector(".game-label");
 const playerWinsLabel = document.querySelector(".player-wins-label");
 const computerWinsLabel = document.querySelector(".computer-wins-label");
+const roundLabel = document.querySelector(".round-label");
 
 const game = {
     playerChoice: "",
@@ -17,7 +18,7 @@ const game = {
 const rockPaperScissors = ['🪨', '📜', '✂️'];
 
 let playerWon = false;
-let gameRound = 0;
+let gameRound = 1;
 
 // Event listeners
 buttons.forEach(button => {
@@ -26,7 +27,7 @@ buttons.forEach(button => {
     });
 });
 
-setGameLabel("Rock, Paper or Scissors?");
+setGameLabels("Rock, Paper or Scissors?");
 
 // Functions
 function getComputerChoice() {
@@ -34,11 +35,16 @@ function getComputerChoice() {
 }
 
 function buttonClicked(button) {
-    const choice = button.target.innerHTML;
-    //game.computerChoice = "🪨";
-    game.computerChoice = getComputerChoice();
+    const choice = button.target.textContent;
 
-    console.log("getComputerChoice: " + game.computerChoice);
+    buttons.forEach(button => {
+        if(button.textContent != choice) {
+            button.style.visibility = 'hidden'
+        }
+    });
+
+    game.computerChoice = getComputerChoice();
+    computerIcon.textContent = game.computerChoice;
 
     switch (choice) {
         case '🪨':
@@ -54,7 +60,7 @@ function buttonClicked(button) {
             break;
     }
 
-    setGameLabel(checkWinner() + " wins")
+    setGameLabels(checkWinner() + " wins")
 
     gameRound++;
 }
@@ -87,8 +93,25 @@ function checkWinner() {
     return winner;
 }
 
-function setGameLabel(labelText) {
+function setGameLabels(labelText) {
     gameLabel.textContent = labelText;
     playerWinsLabel.textContent = "Player: " + game.playerWins + " ";
     computerWinsLabel.textContent = "Computer: " + game.computerWins;
+    roundLabel.textContent = "Round: " + gameRound;
+
+    buttons.forEach(button => {
+        button.disabled = true;
+    });
+
+    setTimeout(resetGameLabels, 2000);
+}
+
+function resetGameLabels() {
+    computerIcon.textContent = "🤖";
+    gameLabel.textContent = "Rock, Paper or Scissors?";
+
+    buttons.forEach(button => {
+        button.disabled = false;
+        button.style.visibility = 'visible';
+    });
 }

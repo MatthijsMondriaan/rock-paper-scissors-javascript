@@ -2,6 +2,12 @@
 	font-size: x-small;
 }
 
+body {
+	background-image: url(/images/rock-paper-scissors.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
 .container {
 	width: 280px;
 	margin: auto;
@@ -89,4 +95,7 @@
 
 .button {
 	font-size: xx-large;
+	padding: 0;
+	border: none;
+	background: none;
 }
